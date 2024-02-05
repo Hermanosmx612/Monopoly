@@ -1,0 +1,66 @@
+
+###
+## nuevo Incorrecto
+POST http://13.69.154.63:8090/auth/nuevo HTTP/1.1
+Content-Type:application/json
+
+{
+    "nickname" : "prueba",
+    "email" : "@",
+    "password": "a",
+    "roles" : ["admin"]
+}
+
+###
+## nuevo ok
+POST http://13.69.154.63:3306/auth/nuevo HTTP/1.1
+Content-Type:application/json
+
+{
+    "nickname" : "alexgar",
+    "nombre" : "Alex Garcia",
+    "email" : "alex@gmail.com",
+    "password": "Notelodigo@1",
+}
+
+###
+## login ok
+POST http://localhost:8090/auth/login HTTP/1.1
+Content-Type:application/json
+
+{
+    "nickname" : "joserra",
+    "password": "Notelodigo@1"
+}
+
+###
+## getAllPorteros ok
+GET http://localhost:8090/api/v1/porteros HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb3NlcnJhIiwiaWF0IjoxNzA2NTQ4MjM3LCJleHAiOjE3MDY1ODQyMzd9.6TO45qfSzYNOcdisCsQ779t_ZxgI6GFAiD1RmXtYpN0
+
+###
+## nuevo normal
+POST http://localhost:8090/auth/nuevo HTTP/1.1
+Content-Type:application/json
+
+{
+    "nickname" : "joserra2",
+    "nombre" : "Profesor Joserra2",
+    "email" : "joseramon2@gmail.com",
+    "password": "Notelodigo@1"
+}
+
+###
+## login ok
+POST http://localhost:8090/auth/login HTTP/1.1
+Content-Type:application/json
+
+{
+    "nickname" : "joserra2",
+    "password": "Notelodigo@1"
+}
+
+###
+## getAllPorteros solo lo puede hacer admin
+GET http://localhost:8090/api/v1/porteros HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb3NlcnJhMiIsImlhdCI6MTcwNjU0ODk4NCwiZXhwIjoxNzA2NTg0OTg0fQ.N321CxAecVJgk_ldLKEbfPVV12r-IeggSOy-XUVcXZ0

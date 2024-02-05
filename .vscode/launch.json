@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProyectoMonopolyApplication<proyecto_monopoly>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.proyecto.monopoly.proyecto_monopoly.ProyectoMonopolyApplication",
+            "projectName": "proyecto_monopoly",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
