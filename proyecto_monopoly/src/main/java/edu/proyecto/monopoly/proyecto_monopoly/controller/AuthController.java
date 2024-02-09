@@ -23,6 +23,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -83,14 +84,18 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Mensaje("Datos incorrectos"));
         }
 
-        Authentication authentication = 
-                authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginusuario.getNickname(), loginusuario.getPassword()));
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-                String jwt = jwtService.generateToken(authentication);
-                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-                JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(), userDetails.getAuthorities());
-                return ResponseEntity.status(HttpStatus.OK).body(jwtDto);
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginusuario.getNickname(), loginusuario.getPassword())
+            );
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            String jwt = jwtService.generateToken(authentication);
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(), userDetails.getAuthorities());
+            return ResponseEntity.status(HttpStatus.OK).body(jwtDto);
+        } catch (AuthenticationException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new Mensaje("Datos de autenticación incorrectos"));
+        }
 
     }
 
