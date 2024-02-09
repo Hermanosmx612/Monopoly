@@ -70,4 +70,14 @@ public class UsuarioService {
         else 
             return Optional.empty();
     }
+
+    public boolean eliminarPorNickname(String nickname) {
+        Optional<UsuarioDb> usuarioDb = usuarioRepository.findByNickname(nickname);
+        if (usuarioDb.isPresent()) {
+            usuarioRepository.deleteByNickname(usuarioDb.get().getNickname());
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
