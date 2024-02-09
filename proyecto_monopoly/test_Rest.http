@@ -51,7 +51,17 @@ GET http://localhost:8090/api/v1/game/aleatorio HTTP/1.1
 Content-Type:application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb2xpam8iLCJpYXQiOjE3MDc0NzI4NTMsImV4cCI6MTcwNzUwODg1M30.bXoiltBf6swCYNwLGaphcL8Yu6_6sduBBL5NFfn84jg
 
+###
+## UPDATE user
+PUT http://localhost:8090/api/v1/usuario/update/alexgarc HTTP/1.1
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb2xpam8iLCJpYXQiOjE3MDc0NzI4NTMsImV4cCI6MTcwNzUwODg1M30.bXoiltBf6swCYNwLGaphcL8Yu6_6sduBBL5NFfn84jg
 
+{
+    "nickname" : "alexgar",
+    "nombre" : "alexete",
+    "email" : "alex@cambio.es"
+}
 
 
 

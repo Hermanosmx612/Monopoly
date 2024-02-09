@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import edu.proyecto.monopoly.proyecto_monopoly.model.db.UsuarioDb;
 import edu.proyecto.monopoly.proyecto_monopoly.model.dto.PaginaDto;
 import edu.proyecto.monopoly.proyecto_monopoly.model.dto.UserList;
+import edu.proyecto.monopoly.proyecto_monopoly.model.dto.UsuarioUpdate;
 import edu.proyecto.monopoly.proyecto_monopoly.repository.UsuarioRepository;
 import edu.proyecto.monopoly.proyecto_monopoly.srv.mapper.UsuarioMapper;
 import jakarta.transaction.Transactional;
@@ -46,5 +47,27 @@ public class UsuarioService {
             UsuarioMapper.INSTANCE.usuarioDbToUsuarioList(paginaUserDb.getContent()),
             paginaUserDb.getSort()
         );
+    }
+
+    public Optional<UsuarioUpdate> update(UsuarioUpdate usuarioUpdate){
+        Optional<UsuarioDb> optionalAlumnoDb = usuarioRepository.findByNickname(usuarioUpdate.getNickname());
+        if (optionalAlumnoDb.isPresent()) {
+            // Si existe, actualizar y devolver el AlumnoDb convertido a AlumnoEdit
+            UsuarioDb existingUserDb = optionalAlumnoDb.get();
+            UsuarioMapper.INSTANCE.updateUsuarioDbFromUsuarioUpdate(usuarioUpdate, existingUserDb);
+            UsuarioDb updatedUsuarioDb = usuarioRepository.save(existingUserDb);
+            return Optional.of(UsuarioMapper.INSTANCE.usuarioDbToUsuarioUpdate(updatedUsuarioDb));
+        } else {
+            // Si no existe, devolver un Optional vacío
+            return Optional.empty();
+        }
+    }
+
+    public Optional<UsuarioUpdate> getUsuarioUpdateByNickname(String nickname) {
+        Optional<UsuarioDb> usuarioDb= usuarioRepository.findByNickname(nickname);
+        if (usuarioDb.isPresent())
+            return Optional.of(UsuarioMapper.INSTANCE.usuarioDbToUsuarioUpdate(usuarioDb.get()));
+        else 
+            return Optional.empty();
     }
 }
