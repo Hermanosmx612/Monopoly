@@ -22,7 +22,8 @@ import lombok.Setter;
 public class PropietarioDb {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_propietario")
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "id_partida") // Nombre de la columna de la clave externa

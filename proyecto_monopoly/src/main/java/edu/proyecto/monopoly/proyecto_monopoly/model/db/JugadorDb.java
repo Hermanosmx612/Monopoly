@@ -10,19 +10,18 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "jugadores") // Nombre de la tabla en la base de datos
 public class JugadorDb {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_jugador")
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario") // Nombre de la columna de la clave externa
@@ -38,5 +37,8 @@ public class JugadorDb {
     @Column(name = "dinero_actual")
     private double dineroActual;
 
-    // Constructores, getters y setters
+    public JugadorDb(){
+        this.dineroActual = 500.00;
+        this.colorFicha = "default";
+    }
 }

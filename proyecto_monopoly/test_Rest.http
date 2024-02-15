@@ -73,5 +73,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb2xpam8iLCJpYXQiOjE3MDc0N
 ## Nuevo Game
 POST http://localhost:8090/partida/crear HTTP/1.1
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3giLCJpYXQiOjE3MDc5MzAwOTgsImV4cCI6MTcwNzk2NjA5OH0._xnTenxbEoNWilcGANzdgUahBf1YgeIqsjz0etYSxjY
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3giLCJpYXQiOjE3MDc5ODM4OTIsImV4cCI6MTcwODAxOTg5Mn0.LuiP5O8hRmyVW-wDvgpuz715WDuHXOR7VprR-iAJXBw
 
+###
+## Partida add jugador
+ POST http://localhost:8090/jugador/addplayer HTTP/1.1
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3giLCJpYXQiOjE3MDc5ODM4OTIsImV4cCI6MTcwODAxOTg5Mn0.LuiP5O8hRmyVW-wDvgpuz715WDuHXOR7VprR-iAJXBw
+
+{
+    "idUser" : 1,
+    "idPartida" : 1,
+    "colorFicha" : "default",
+    "dineroActual" : 500.00
+}

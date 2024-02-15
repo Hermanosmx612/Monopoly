@@ -12,19 +12,18 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "partidas") // Nombre de la tabla en la base de datos
 public class PartidaDb {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_partida")
+    private Integer id;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha_inicio")
@@ -37,5 +36,9 @@ public class PartidaDb {
     @Column(name = "otros_detalles")
     private String otrosDetalles;
 
-    // Constructores, getters y setters
+    public PartidaDb(){
+        this.fechaInicio = new Date();
+        this.duracion = 0;
+        this.estado = "iniciada";
+    }
 }
