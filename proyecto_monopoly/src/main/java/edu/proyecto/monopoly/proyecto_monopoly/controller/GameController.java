@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.proyecto.monopoly.proyecto_monopoly.srv.GameService;
 
 
+
 @RestController
 @RequestMapping("/api/v1/game")
 public class GameController {
@@ -22,4 +23,5 @@ public class GameController {
         return ResponseEntity.ok().body(gameService.numeroRand());
         
     }
+    
 }

@@ -18,8 +18,8 @@ Content-Type:application/json
 
 {
     "nombre" : "Pablo Cerda",
-    "nickname" : "pablox",
-    "email" : "pablo@gmail.com",
+    "nickname" : "uarret",
+    "email" : "uarret@gmail.com",
     "password": "Notelodigo@1"
 }
 
@@ -29,7 +29,7 @@ POST http://localhost:8090/auth/login HTTP/1.1
 Content-Type:application/json
 
 {
-    "nickname" : "pablox",
+    "nickname" : "uarret",
     "password": "Notelodigo@1"
 }
 
@@ -77,13 +77,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3giLCJpYXQiOjE3MDc5O
 
 ###
 ## Partida add jugador
- POST http://localhost:8090/jugador/addplayer HTTP/1.1
+POST http://localhost:8090/jugador/addplayer HTTP/1.1
 Content-Type:application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3giLCJpYXQiOjE3MDc5ODM4OTIsImV4cCI6MTcwODAxOTg5Mn0.LuiP5O8hRmyVW-wDvgpuz715WDuHXOR7VprR-iAJXBw
 
 {
-    "idUser" : 1,
+    "idUser" : 2,
     "idPartida" : 1,
-    "colorFicha" : "default",
-    "dineroActual" : 500.00
+    "colorFicha" : "default"
 }
+
+###
+## Contar id partida
+GET http://localhost:8090/jugador/empezar/1 HTTP/1.1
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3giLCJpYXQiOjE3MDc5ODM4OTIsImV4cCI6MTcwODAxOTg5Mn0.LuiP5O8hRmyVW-wDvgpuz715WDuHXOR7VprR-iAJXBw

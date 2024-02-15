@@ -25,6 +25,10 @@ public class UsuarioService {
     public Optional<UsuarioDb> getByNickname(String nickname){
         return usuarioRepository.findByNickname(nickname);
     }
+
+    public Optional<UsuarioDb> getById(Integer id){
+        return usuarioRepository.findById(id);
+    }
     public boolean existsByNickname(String nickanme){
         return usuarioRepository.existsByNickname(nickanme);
     }

@@ -1,5 +1,7 @@
 package edu.proyecto.monopoly.proyecto_monopoly.srv.impl;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import edu.proyecto.monopoly.proyecto_monopoly.model.db.PartidaDb;
@@ -26,6 +28,11 @@ public class PartidaServiceImpl implements PartidaService{
     public PartidaDb crearPartidaDb() {
        PartidaDb nuevaPartida = new PartidaDb();
        return partidaRepository.save(nuevaPartida);
+    }
+
+    @Override
+    public Optional<PartidaDb> getById(Integer id){
+        return partidaRepository.findById(id);
     }
     
 }

@@ -11,6 +11,7 @@ import edu.proyecto.monopoly.proyecto_monopoly.model.db.UsuarioDb;
 
 public interface UsuarioRepository extends JpaRepository<UsuarioDb, Long>{
     Optional<UsuarioDb> findByNickname(String nickname);
+    Optional<UsuarioDb> findById(Integer id);
     boolean existsByNickname(String nickname);
     boolean existsByEmail(String email);
     Page<UsuarioDb> findAll(Pageable pageable);
