@@ -1,6 +1,7 @@
 package edu.proyecto.monopoly.proyecto_monopoly.srv.impl;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,11 @@ public class JugadorServiceImpl implements JugadorService{
     public void avanzarJugadorReset(Integer idUsuario, Integer idPartida, Integer casillasAvanzar) {
         jugadorRepository.avanzarJugadorReset(idUsuario, idPartida, casillasAvanzar);
 
+    }
+
+    @Override
+    public List<Object[]> getColorFichaByPartidaId(Integer idPartida) {
+        return jugadorRepository.findColorFichaByPartidaId(idPartida);
     }
 
 

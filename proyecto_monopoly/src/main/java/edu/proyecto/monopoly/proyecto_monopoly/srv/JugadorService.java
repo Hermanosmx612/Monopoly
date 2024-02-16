@@ -1,6 +1,7 @@
 package edu.proyecto.monopoly.proyecto_monopoly.srv;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import edu.proyecto.monopoly.proyecto_monopoly.model.db.JugadorDb;
@@ -15,4 +16,5 @@ public interface JugadorService {
     public void avanzarJugador(Integer idUsuario, Integer idPartida, Integer casillasAvanzar);
     public void avanzarJugadorReset(Integer idUsuario, Integer idPartida, Integer casillasAvanzar);
     public Integer obtenerPosicionJugador(Integer idUsuario, Integer idPartida);
+    public List<Object[]> getColorFichaByPartidaId(Integer idPartida);
 }

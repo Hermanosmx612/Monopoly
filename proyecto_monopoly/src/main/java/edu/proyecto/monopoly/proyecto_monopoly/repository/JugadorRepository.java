@@ -1,5 +1,6 @@
 package edu.proyecto.monopoly.proyecto_monopoly.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -28,4 +29,6 @@ public interface JugadorRepository extends JpaRepository<JugadorDb, Long>{
     @Transactional
     @Query("UPDATE JugadorDb j SET j.posicion = :casillasAvanzar WHERE j.usuario.id = :idUser AND j.partida.id = :idPartida")
     void avanzarJugadorReset(@Param("idUser") Integer idUser, @Param("idPartida") Integer idPartida, @Param("casillasAvanzar") Integer casillasAvanzar);
+    @Query("SELECT j.colorFicha, j.posicion FROM JugadorDb j WHERE j.partida.id = :idPartida")
+    List<Object[]> findColorFichaByPartidaId(Integer idPartida);
 }
