@@ -12,4 +12,7 @@ public interface JugadorService {
     public JugadorAddPartidaDto save(JugadorAddPartidaDto jugadorAddPartidaDto);
     public Optional<JugadorDb> buscarJugadorPorUsuarioYPartida(UsuarioDb usuario, PartidaDb partida);
     public int contarIdPartida(PartidaDb partida);
+    public void avanzarJugador(Integer idUsuario, Integer idPartida, Integer casillasAvanzar);
+    public void avanzarJugadorReset(Integer idUsuario, Integer idPartida, Integer casillasAvanzar);
+    public Integer obtenerPosicionJugador(Integer idUsuario, Integer idPartida);
 }

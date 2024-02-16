@@ -49,19 +49,33 @@ public class JugadorController {
 
             }
             
-            
-            
         } catch(Exception e) {
             return new ResponseEntity<>("Error adding player to game", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @GetMapping("empezar/{id}")
+    @GetMapping("empezar/{id}") // Comprobar si minimo son 2 jugadores para poder empezar la partida
     public boolean empezarPartida(@PathVariable("id") Integer id) {
         if(jugadorService.contarIdPartida(partidaService.getById(id).get()) >= 2){
             return true;
         }
         return false;
+    }
+
+    @PostMapping("avanzar/{idUser}/{idPartida}/{casillasAvanzar}")
+    public ResponseEntity<?> avanzarFicha(@PathVariable("idUser") Integer idUser, @PathVariable("idPartida") Integer idPartida, @PathVariable("casillasAvanzar") Integer casillasAvanzar) {
+            int numeroActual = jugadorService.obtenerPosicionJugador(idUser, idPartida);
+            if(numeroActual + casillasAvanzar > 39){
+                casillasAvanzar = Math.abs(39 - (numeroActual + casillasAvanzar));
+                jugadorService.avanzarJugadorReset(idUser, idPartida, casillasAvanzar);
+            }else{
+                jugadorService.avanzarJugador(idUser, idPartida, casillasAvanzar);
+                
+            }
+            return new ResponseEntity<>(HttpStatus.OK);
+           
+        
+        
     }
     
 }

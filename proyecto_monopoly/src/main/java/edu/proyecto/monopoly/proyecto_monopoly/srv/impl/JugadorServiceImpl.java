@@ -3,6 +3,7 @@ package edu.proyecto.monopoly.proyecto_monopoly.srv.impl;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.proyecto.monopoly.proyecto_monopoly.model.db.JugadorDb;
@@ -16,6 +17,7 @@ import edu.proyecto.monopoly.proyecto_monopoly.srv.mapper.JugadorMapper;
 @Service
 public class JugadorServiceImpl implements JugadorService{
 
+    @Autowired
     private final JugadorRepository jugadorRepository;
 
     
@@ -42,6 +44,24 @@ public class JugadorServiceImpl implements JugadorService{
     @Override
     public int contarIdPartida(PartidaDb partida) {
         return jugadorRepository.countByPartida(partida);
+    }
+
+    @Override
+    public void avanzarJugador(Integer idUsuario, Integer idPartida, Integer casillasAvanzar) {
+        jugadorRepository.avanzarJugador(idUsuario, idPartida, casillasAvanzar);
+
+    }
+
+    @Override
+    public void avanzarJugadorReset(Integer idUsuario, Integer idPartida, Integer casillasAvanzar) {
+        jugadorRepository.avanzarJugadorReset(idUsuario, idPartida, casillasAvanzar);
+
+    }
+
+
+    @Override
+    public Integer obtenerPosicionJugador(Integer idUsuario, Integer idPartida) {
+        return jugadorRepository.obtenerPosicionJugador(idUsuario, idPartida);
     }
 
 

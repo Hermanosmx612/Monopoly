@@ -36,9 +36,10 @@ public class PartidaDb {
     @Column(name = "otros_detalles")
     private String otrosDetalles;
 
+
     public PartidaDb(){
         this.fechaInicio = new Date();
         this.duracion = 0;
-        this.estado = "iniciada";
+        this.estado = "iniciando";
     }
 }

@@ -37,8 +37,11 @@ public class JugadorDb {
     @Column(name = "dinero_actual")
     private double dineroActual;
 
+    private int posicion;
+
     public JugadorDb(){
         this.dineroActual = 500.00;
         this.colorFicha = "default";
+        this.posicion = 0;
     }
 }
