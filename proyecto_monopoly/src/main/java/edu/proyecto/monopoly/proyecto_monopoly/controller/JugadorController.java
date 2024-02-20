@@ -72,11 +72,9 @@ public class JugadorController {
                 jugadorService.avanzarJugador(idUser, idPartida, casillasAvanzar);
                 
             }
-
             return new ResponseEntity<>(jugadorService.getColorFichaByPartidaId(idPartida), HttpStatus.OK);
-           
-        
-        
     }
+
+
     
 }

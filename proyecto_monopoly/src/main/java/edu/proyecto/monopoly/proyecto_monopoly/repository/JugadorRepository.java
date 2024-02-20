@@ -31,4 +31,9 @@ public interface JugadorRepository extends JpaRepository<JugadorDb, Long>{
     void avanzarJugadorReset(@Param("idUser") Integer idUser, @Param("idPartida") Integer idPartida, @Param("casillasAvanzar") Integer casillasAvanzar);
     @Query("SELECT j.colorFicha, j.posicion FROM JugadorDb j WHERE j.partida.id = :idPartida")
     List<Object[]> findColorFichaByPartidaId(Integer idPartida);
+    @Modifying
+    @Transactional
+    @Query("UPDATE JugadorDb j SET j.dineroActual = j.dineroActual - :dineroResta WHERE j.usuario.id = :idUser AND j.partida.id = :idPartida")
+    void restarDineroPlayer(@Param("idUser") Integer idUser, @Param("idPartida") Integer idPartida, @Param("dineroResta") Integer dineroARestar);
+
 }

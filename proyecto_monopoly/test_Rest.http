@@ -73,17 +73,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb2xpam8iLCJpYXQiOjE3MDc0N
 ## Nuevo Game
 POST http://localhost:8090/partida/crear HTTP/1.1
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4IiwiaWF0IjoxNzA4MDc0ODEwLCJleHAiOjE3MDgxMTA4MTB9.-AeOy2uDVf7wP_p0mhwqGsMpIwK928b2ZmLWVWAKVH8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4IiwiaWF0IjoxNzA4NDQ1MzA2LCJleHAiOjE3MDg0ODEzMDZ9.PQj2TFfI5hn9DMiYl1BaWlKZx8vbR0Mqtv2n-zXjjFI
 
 ###
 ## Partida add jugador
 POST http://localhost:8090/jugador/addplayer HTTP/1.1
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4IiwiaWF0IjoxNzA4MDc4Mjk2LCJleHAiOjE3MDgxMTQyOTZ9.RVgFzoNKgHriywGMKBrxhR0hL-YMaTNx_756QCowDM4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4IiwiaWF0IjoxNzA4NDI4NDk3LCJleHAiOjE3MDg0NjQ0OTd9.BzCbyH37FpQaRVUsuF9io1wtwxdIHiprWqt6ueagk0w
 
 {
-    "idUser" : 1,
-    "idPartida" : 1,
+    "idUser" : 2,
+    "idPartida" : 3,
     "colorFicha" : "default"
 }
 
@@ -101,7 +101,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4IiwiaWF0IjoxNzA4MDc0O
 
 ###
 ## Avanzar posiciones
-POST http://localhost:8090/jugador/avanzar/1/1/11 HTTP/1.1
+POST http://localhost:8090/jugador/avanzar/1/1/2 HTTP/1.1
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4IiwiaWF0IjoxNzA4MDc0ODEwLCJleHAiOjE3MDgxMTA4MTB9.-AeOy2uDVf7wP_p0mhwqGsMpIwK928b2ZmLWVWAKVH8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4IiwiaWF0IjoxNzA4MzMzNDgwLCJleHAiOjE3MDgzNjk0ODB9.y4asV0pZSaWttJxT56zNhmVxitJzDuyahliAp6GNv7c
 
+###
+## Comprar propiedad
+POST http://localhost:8090/propiedad/comprar/2/3/4/morada HTTP/1.1
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4IiwiaWF0IjoxNzA4NDI4NDk3LCJleHAiOjE3MDg0NjQ0OTd9.BzCbyH37FpQaRVUsuF9io1wtwxdIHiprWqt6ueagk0w

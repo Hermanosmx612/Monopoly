@@ -71,4 +71,10 @@ public class JugadorServiceImpl implements JugadorService{
     }
 
 
+    @Override
+    public void restarDinero(Integer idUser, Integer idPartida, Integer dineroArestar) {
+        jugadorRepository.restarDineroPlayer(idUser, idPartida, dineroArestar);
+    }
+
+
 }

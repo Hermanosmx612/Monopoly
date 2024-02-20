@@ -44,4 +44,6 @@ public class PropietarioDb {
     private int numHoteles;
     
     private boolean hipotecada;
+
+    private String color;
 }

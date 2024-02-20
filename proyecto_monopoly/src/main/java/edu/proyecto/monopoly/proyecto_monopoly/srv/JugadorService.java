@@ -17,4 +17,5 @@ public interface JugadorService {
     public void avanzarJugadorReset(Integer idUsuario, Integer idPartida, Integer casillasAvanzar);
     public Integer obtenerPosicionJugador(Integer idUsuario, Integer idPartida);
     public List<Object[]> getColorFichaByPartidaId(Integer idPartida);
+    public void restarDinero(Integer idUser, Integer idPartida, Integer dineroArestar);
 }

@@ -21,7 +21,7 @@ import lombok.Setter;
 public class CasillaDb {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "id_casilla")
+    @Column(name = "id_casilla")
     private Integer id;
 
     private String nombre;
