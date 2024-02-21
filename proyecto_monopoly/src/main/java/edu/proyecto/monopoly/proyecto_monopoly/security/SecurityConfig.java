@@ -56,7 +56,7 @@ public class SecurityConfig {
         //Permitir no estar autenticado /aith y el resto obligar a autentificar
         //Comprobar el token en cada peticion
         http
-          .cors(customizer -> customizer.configurationSource(corsConfigurationSource()))
+          .cors(customizer -> customizer.configurationSource(CorsConfigurationSource()))
           .csrf(csrf -> csrf
                     .disable())
           .authorizeHttpRequests(authRequest -> authRequest
@@ -72,7 +72,7 @@ public class SecurityConfig {
     // por ejemplo desde Angular
 
     @Bean
-    CorsConfigurationSource corsConfigurationSource(){
+    CorsConfigurationSource CorsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
         //Configurar desde donde se puede invocar a la API
         configuration.setAllowedOrigins(List.of("http://localhost:8005"));
