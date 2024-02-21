@@ -56,6 +56,7 @@ public class SecurityConfig {
         //Permitir no estar autenticado /aith y el resto obligar a autentificar
         //Comprobar el token en cada peticion
         http
+          .cors(customizer -> customizer.configurationSource(corsConfigurationSource()))
           .csrf(csrf -> csrf
                     .disable())
           .authorizeHttpRequests(authRequest -> authRequest
