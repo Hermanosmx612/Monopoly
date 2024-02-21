@@ -6,6 +6,7 @@ import org.mapstruct.factory.Mappers;
 
 import edu.proyecto.monopoly.proyecto_monopoly.model.db.PropietarioDb;
 import edu.proyecto.monopoly.proyecto_monopoly.model.dto.PropietarioDto;
+import edu.proyecto.monopoly.proyecto_monopoly.model.dto.PropietarioInfo;
 
 @Mapper
 public interface PropietarioMapper {
@@ -20,6 +21,8 @@ public interface PropietarioMapper {
     @Mapping(target = "idPartida", source = "partida.id")
     @Mapping(target = "idJugador", source = "jugador.id")
     PropietarioDto propietarioDbToPropietarioNuevo(PropietarioDb propietarioDb);
+    @Mapping(target = "idJugador", source = "jugador.id")
+    PropietarioInfo propietarioDbPropietarioInfo(PropietarioDb propietarioDb);
 
 
 
